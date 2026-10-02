@@ -6,10 +6,7 @@ export interface PluginSettingFieldGroup {
   fields: PluginSettingField[];
 }
 
-const fieldNamespace = (field: PluginSettingField) => {
-  const dotIndex = field.key.indexOf(".");
-  return dotIndex === -1 ? "" : field.key.slice(0, dotIndex);
-};
+const fieldNamespace = (field: PluginSettingField) => field.key.split(".", 1)[0] ?? field.key;
 
 export const groupPluginSettingFields = (fields: PluginSettingField[]): PluginSettingFieldGroup[] => {
   const groups: PluginSettingFieldGroup[] = [];
@@ -20,8 +17,8 @@ export const groupPluginSettingFields = (fields: PluginSettingField[]): PluginSe
     while (end < fields.length && fieldNamespace(fields[end]!) === namespace) end += 1;
     const run = fields.slice(index, end);
     groups.push({
-      id: `${namespace || "default"}:${field.key}`,
-      compact: Boolean(namespace) && run.length >= 3 && run.every((item) => item.type === "boolean"),
+      id: `${namespace}:${field.key}`,
+      compact: run.length >= 3 && run.every((item) => item.type === "boolean"),
       fields: run,
     });
     index = end;

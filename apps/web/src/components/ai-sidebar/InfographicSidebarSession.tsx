@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { ArrowUp, PanelRightClose, Sparkles, Undo2 } from "lucide-react";
+import { PanelRightClose, Sparkles, Undo2 } from "lucide-react";
 import type { MouseEvent } from "react";
 import type { InfographicConversationTurn } from "@edgeever/shared";
 import { Button } from "@/components/ui/button";
@@ -53,7 +53,6 @@ function InfographicSidebarComposer({ session }: { session: InfographicSidebarCo
   const draft = textInput.value.trim();
   return (
     <PromptInput
-      inputGroupClassName="rounded-[22px] border-slate-200 bg-card shadow-sm has-[[data-slot=input-group-control]:focus-visible]:ring-0"
       onSubmit={async ({ text }) => {
         const raw = text.trim().slice(0, 1000);
         if (!raw || session.generating) throw new Error("empty");
@@ -61,12 +60,12 @@ function InfographicSidebarComposer({ session }: { session: InfographicSidebarCo
       }}
     >
       <PromptInputTextarea
-        className="min-h-20 px-4 pb-2 pt-4 text-[13px] leading-5 md:text-[13px]"
+        className="text-[13px] leading-5 md:text-[13px]"
         disabled={session.generating}
         maxLength={1000}
         placeholder={t(session.hasGraphic ? "infographic.refinePrompt" : "infographic.prompt")}
       />
-      <PromptInputFooter className="px-2.5 pb-2.5 pt-0">
+      <PromptInputFooter>
         <PromptInputTools>
           {session.canUndo ? (
             <Button type="button" size="sm" variant="outline" disabled={session.generating} onClick={session.onUndo}>
@@ -82,12 +81,10 @@ function InfographicSidebarComposer({ session }: { session: InfographicSidebarCo
         ) : (
           <PromptInputSubmit
             aria-label={t(session.hasGraphic ? "infographic.applyRefinement" : "infographic.generate")}
-            className="rounded-full border-slate-900 bg-slate-900 text-slate-50 hover:border-slate-800 hover:bg-slate-800 disabled:border-slate-100 disabled:bg-slate-100 disabled:text-slate-300"
+            className="border-slate-900 bg-slate-900 text-slate-50 hover:border-slate-800 hover:bg-slate-800"
             disabled={!draft}
             variant="solid"
-          >
-            <ArrowUp className="size-4" />
-          </PromptInputSubmit>
+          />
         )}
       </PromptInputFooter>
     </PromptInput>
@@ -197,7 +194,7 @@ export function InfographicSidebarSession({
         <ConversationScrollButton aria-label={t("infographic.scrollToBottom")} />
       </Conversation>
       {!session.readOnly ? (
-        <div className="shrink-0 p-3">
+        <div className="shrink-0 border-t border-slate-200 p-3">
           <PromptInputProvider>
             <InfographicSidebarComposer session={session} />
           </PromptInputProvider>

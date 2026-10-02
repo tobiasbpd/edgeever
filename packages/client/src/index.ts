@@ -134,7 +134,6 @@ export type InstanceHealth = {
   authMode?: string | null;
   build?: string | null;
   deployment?: DeploymentMetadata | null;
-  deploymentVersionCreatedAt?: string | null;
   migration?: string | null;
   storage?: {
     database?: "d1" | "sqlite" | string | null;
