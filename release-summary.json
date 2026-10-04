@@ -1,23 +1,23 @@
 {
-  "version": "1.98.0",
+  "version": "1.99.1",
   "changes": {
     "en-US": [
-      "System information now shows the instance deployment time across Web, Android, and iOS.",
-      "Selected-text translation now preserves paragraph breaks, and selection AI actions cannot edit notes.",
-      "Plugin settings are grouped and displayed in a clearer, flatter layout.",
-      "The AI and infographic sidebars have a clearer message composer and a simpler empty state."
+      "Codex progress in the AI sidebar now stays in the process view, while the final reply appears separately.",
+      "Desktop Codex sessions now use the first user prompt for their titles.",
+      "Downloaded file attachments and PDFs on desktop now keep their original filenames.",
+      "Firefox Web Clipper 0.1.15 now requests site access when saving from its popup and improves add-on submission compatibility."
     ],
     "zh-CN": [
-      "Web、Android 和 iOS 的系统信息现在会显示实例部署时间。",
-      "选中文本翻译现在会保留段落分隔，选区 AI 操作也不会修改笔记。",
-      "插件设置现在分组更清晰，布局也更简洁。",
-      "AI 与信息图侧栏的消息输入区更加清晰，空白状态也更简洁。"
+      "AI 侧边栏中的 Codex 过程消息现显示在过程区域，最终回复单独呈现。",
+      "桌面端 Codex 会话现在根据用户的首条提问生成标题。",
+      "桌面端下载文件附件和 PDF 时，现在会保留原始文件名。",
+      "Firefox 网页剪藏插件 0.1.15 现可在弹窗保存时正确请求网站访问权限，并改进扩展提交兼容性。"
     ],
     "ja": [
-      "Web、Android、iOS のシステム情報にインスタンスのデプロイ時刻を表示します。",
-      "選択したテキストの翻訳で段落区切りを保持し、選択範囲の AI 操作ではノートを変更できないようにしました。",
-      "プラグイン設定のグループ分けと表示を整理しました。",
-      "AI とインフォグラフィックのサイドバーで入力欄を見やすくし、空の状態の表示を簡潔にしました。"
+      "AI サイドバーでは Codex の進行メッセージを処理欄に表示し、最終回答を分けて表示します。",
+      "デスクトップ版の Codex セッション名に、最初のユーザープロンプトが反映されます。",
+      "デスクトップ版でファイル添付と PDF をダウンロードする際、元のファイル名が保持されます。",
+      "Firefox Web Clipper 0.1.15 では、ポップアップから保存する際にサイトへのアクセス許可を求め、アドオンの提出互換性を改善しました。"
     ]
   }
 }
